@@ -1,0 +1,16 @@
+{
+  "name": "khayal-portfolio-pdf",
+  "version": "1.0.0",
+  "description": "Khayal Jamilli Portfolio PDF Generator",
+  "main": "generate-pdf.js",
+  "scripts": {
+    "generate-pdf": "node generate-pdf.js",
+    "generate-cv": "node generate-cv-pdf.js"
+  },
+  "dependencies": {
+    "puppeteer": "^21.0.0"
+  },
+  "keywords": ["portfolio", "pdf", "puppeteer"],
+  "author": "Khayal Jamilli",
+  "license": "MIT"
+}

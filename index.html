@@ -3,14 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Khayal Jamilli — Yazılım Geliştirici</title>
-  <meta name="description" content="Khayal Jamilli: İş hedeflerinize uygun modern web uygulamaları. React, Node.js, Python, Next.js. Vaka çalışmaları, hizmetler ve süreç.">
+  <title>Khayal Jamilli — AI & Full-Stack Developer</title>
+  <meta name="description" content="Khayal Jamilli: AI & Machine Learning uzmanı, modern web teknolojileri ile yapay zeka odaklı çözümler. React, Next.js, Python, TensorFlow.">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <meta property="og:title" content="Khayal Jamilli — Yazılım Geliştirici">
-  <meta property="og:description" content="Sonuç odaklı web ve yazılım projeleri. Vaka çalışmaları ve müşteri referansları.">
+  <meta property="og:title" content="Khayal Jamilli — AI & Full-Stack Developer">
+  <meta property="og:description" content="Yapay zeka ve modern web teknolojileri ile geleceği şekillendiren çözümler. AI projeleri, vaka çalışmaları ve teknoloji hizmetleri.">
   <meta property="og:image" content="assets/og-cover.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://xeyal9032.github.io">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Khayal Jamilli — AI & Full-Stack Developer">
+  <meta name="twitter:description" content="Yapay zeka ve modern web teknolojileri ile geleceği şekillendiren çözümler.">
+  <meta name="keywords" content="AI, Machine Learning, Full-Stack Developer, React, Next.js, Python, TensorFlow, PyTorch, Web Development">
+  <meta name="author" content="Khayal Jamilli">
   <link rel="preload" href="assets/hero.webp" as="image">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <a class="skip" href="#main">İçeriğe geç</a>
@@ -238,18 +246,74 @@
 
     <section id="contact" class="section">
       <div class="wrap">
-        <h2>İletişim</h2>
-        <p>Projenizi iki iş günü içinde değerlendireyim. Formu doldurun veya e-posta atın.</p>
-        <form id="contact" class="contact" action="https://formspree.io/f/xeyalcemilli9032@gmail.com" method="POST">
-          <input name="name" type="text" placeholder="Ad Soyad" required>
-          <input name="email" type="email" placeholder="E-posta" required>
-          <textarea name="message" rows="5" placeholder="Kısaca proje detayları ve zaman planı" required></textarea>
-          <button class="cta" type="submit">Teklif İste</button>
-          <p id="status" role="status" aria-live="polite"></p>
-        </form>
-        <div class="social">
-          <a href="https://github.com/xeyal9032" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
-          <a href="mailto:xeyalcemilli9032@gmail.com" aria-label="E-posta">E-posta</a>
+        <h2>AI Projelerinizi Başlatalım</h2>
+        <p class="lead">Yapay zeka ile işinizi dijital dünyada öne çıkarmak için benimle iletişime geçin. 48 saat içinde detaylı analiz ve teklif sunuyorum.</p>
+        
+        <div class="contact-grid">
+          <form id="contact" class="contact" action="https://formspree.io/f/xeyalcemilli9032@gmail.com" method="POST">
+            <div class="form-group">
+              <label for="name">Ad Soyad</label>
+              <input name="name" id="name" type="text" placeholder="Adınız ve soyadınız" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">E-posta</label>
+              <input name="email" id="email" type="email" placeholder="E-posta adresiniz" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="project-type">Proje Türü</label>
+              <select name="project-type" id="project-type" required>
+                <option value="">Proje türünü seçin</option>
+                <option value="ai-ml">AI & Machine Learning</option>
+                <option value="web-app">Web Uygulaması</option>
+                <option value="mobile-pwa">Mobil & PWA</option>
+                <option value="backend-api">Backend & API</option>
+                <option value="consulting">Danışmanlık</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Proje Detayları</label>
+              <textarea name="message" id="message" rows="5" placeholder="Proje hakkında detaylar, hedefler ve zaman planı" required></textarea>
+            </div>
+            
+            <button class="cta" type="submit">
+              <i class="fas fa-paper-plane"></i>
+              <span>AI Projesi Başlat</span>
+            </button>
+            
+            <p id="status" role="status" aria-live="polite"></p>
+          </form>
+          
+          <div class="contact-info">
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <h3>E-posta</h3>
+              <p>xeyalcemilli9032@gmail.com</p>
+              <a href="mailto:xeyalcemilli9032@gmail.com" class="contact-link">Mesaj Gönder</a>
+            </div>
+            
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fab fa-github"></i>
+              </div>
+              <h3>GitHub</h3>
+              <p>Projelerimi ve kodlarımı inceleyin</p>
+              <a href="https://github.com/xeyal9032" target="_blank" class="contact-link">GitHub'a Git</a>
+            </div>
+            
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fas fa-file-pdf"></i>
+              </div>
+              <h3>CV & Portfolio</h3>
+              <p>Detaylı CV ve vaka çalışmalarım</p>
+              <a href="assets/Khayal-Jamilli-CV.pdf" download class="contact-link">CV'yi İndir</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -271,7 +335,21 @@
 
   <footer class="foot">
     <div class="wrap">
-      <small>© 2025 Khayal Jamilli — Tüm hakları saklıdır.</small>
+      <div class="footer-content">
+        <div class="footer-info">
+          <small>© 2025 Khayal Jamilli — AI & Full-Stack Developer</small>
+          <p>NEXTCODE GROUP & OST WIND GROUP ile işbirliği</p>
+        </div>
+        
+        <div class="footer-logos">
+          <div class="footer-logo">
+            <img src="assets/nextcode-logo.svg" alt="NEXTCODE GROUP" class="company-logo nextcode">
+          </div>
+          <div class="footer-logo">
+            <img src="assets/ostwind-logo.svg" alt="OST WIND GROUP" class="company-logo ostwind">
+          </div>
+        </div>
+      </div>
     </div>
   </footer>
 

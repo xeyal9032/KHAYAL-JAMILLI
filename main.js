@@ -1,57 +1,163 @@
-// Tema
-const html = document.documentElement;
-const saved = localStorage.getItem('theme');
-if (saved === 'light') html.classList.add('light');
-document.getElementById('theme')?.addEventListener('click', () => {
-  html.classList.toggle('light');
-  localStorage.setItem('theme', html.classList.contains('light') ? 'light' : 'dark');
+/**
+ * Khayal Jamilli Portfolio - Main JavaScript
+ * Modern AI & Full-Stack Developer Website
+ * GitHub Optimized
+ */
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize all functionality
+  initThemeSwitcher();
+  loadCaseStudies();
+  initCounters();
+  initContactForm();
 });
 
-// Vaka çalışmaları
-(async function(){
-  try {
-    const res = await fetch('cases.data.js');
-    const txt = await res.text();
-    const data = JSON.parse(txt.replace(/^window\.CASES\s*=\s*/,'').trim());
-    const el = document.getElementById('cases');
-    data.forEach(c => {
-      const article = document.createElement('article');
-      article.className = 'card';
-      article.innerHTML = `
-        <img src="${c.image}" alt="${c.title} ekran görüntüsü" loading="lazy">
-        <h3>${c.title}</h3>
-        <p>${c.summary}</p>
-        <div class="metrics">
-          ${c.metrics.map(m=>`<span>${m}</span>`).join('')}
-        </div>
-        <div class="tags">${c.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
-        <div class="actions" style="margin-top:.6rem;display:flex;gap:.6rem;flex-wrap:wrap">
-          ${c.demo ? `<a class="cta" href="${c.demo}" target="_blank" rel="noopener">Demo</a>` : ''}
-          ${c.code ? `<a class="ghost" href="${c.code}" target="_blank" rel="noopener">Kod</a>` : ''}
-          ${c.brief ? `<a class="ghost" href="${c.brief}" target="_blank" rel="noopener">Vaka Özeti</a>` : ''}
-        </div>
-      `;
-      el.appendChild(article);
+/**
+ * Theme Switching Functionality
+ */
+function initThemeSwitcher() {
+  const themeBtn = document.getElementById('theme');
+  const html = document.documentElement;
+  
+  // Load saved theme from localStorage
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  html.className = savedTheme;
+  themeBtn.textContent = savedTheme === 'dark' ? '🌓' : '🌙';
+  
+  // Theme toggle event listener
+  themeBtn.addEventListener('click', function() {
+    const currentTheme = html.className;
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    html.className = newTheme;
+    localStorage.setItem('theme', newTheme);
+    themeBtn.textContent = newTheme === 'dark' ? '🌓' : '🌙';
+  });
+}
+
+/**
+ * Load Case Studies from Data File
+ */
+function loadCaseStudies() {
+  const casesContainer = document.getElementById('cases');
+  
+  if (!casesContainer || !window.caseStudies) return;
+  
+  const casesHTML = window.caseStudies.map(study => `
+    <article class="card">
+      <img src="${study.image}" alt="${study.title}" loading="lazy">
+      <div class="tags">
+        ${study.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+      </div>
+      <h3>${study.title}</h3>
+      <p>${study.summary}</p>
+      <div class="metrics">
+        <span>${study.metrics.performance}</span>
+        <span>${study.metrics.users}</span>
+        <span>${study.metrics.revenue}</span>
+      </div>
+      <div class="actions">
+        <a href="${study.demo}" target="_blank" rel="noopener" class="cta small">Demo</a>
+        <a href="${study.code}" target="_blank" rel="noopener" class="ghost small">Kod</a>
+        <a href="${study.brief}" download class="ghost small">Brief</a>
+      </div>
+    </article>
+  `).join('');
+  
+  casesContainer.innerHTML = casesHTML;
+}
+
+/**
+ * Counter Animation for Hero Stats
+ */
+function initCounters() {
+  const counters = document.querySelectorAll('.stat-number');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counter = entry.target;
+        const target = counter.getAttribute('data-count');
+        animateCounter(counter, target);
+        observer.unobserve(counter);
+      }
     });
-  } catch (e) { console.error(e); }
-})();
+  }, { threshold: 0.5 });
+  
+  counters.forEach(counter => observer.observe(counter));
+}
 
-// İletişim formu
-document.querySelector('form#contact')?.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const form = e.currentTarget;
-  const status = document.getElementById('status');
-  status.textContent = 'Gönderiliyor...';
-  const fd = new FormData(form);
-  try {
-    const resp = await fetch(form.action, { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } });
-    if (resp.ok) {
-      status.textContent = 'Teşekkürler! 24 saat içinde dönüş yapacağım.';
-      form.reset();
-    } else {
-      status.textContent = 'Bir sorun oluştu. Lütfen e-posta gönderin: xeyalcemilli9032@gmail.com';
+/**
+ * Animate Counter from 0 to Target Value
+ */
+function animateCounter(counter, target) {
+  const isPercentage = target.includes('%');
+  const isPlus = target.includes('+');
+  const numericTarget = parseInt(target.replace(/[^0-9]/g, ''));
+  
+  let current = 0;
+  const increment = numericTarget / 50;
+  const duration = 2000;
+  const stepTime = duration / 50;
+  
+  const timer = setInterval(() => {
+    current += increment;
+    
+    if (current >= numericTarget) {
+      current = numericTarget;
+      clearInterval(timer);
     }
-  } catch (err) {
-    status.textContent = 'Ağ hatası. Daha sonra tekrar deneyin.';
-  }
-});
+    
+    let displayValue = Math.floor(current);
+    
+    if (isPercentage) {
+      displayValue += '%';
+    } else if (isPlus) {
+      displayValue += '+';
+    }
+    
+    counter.textContent = displayValue;
+  }, stepTime);
+}
+
+/**
+ * Contact Form Handling
+ */
+function initContactForm() {
+  const contactForm = document.getElementById('contact');
+  const status = document.getElementById('status');
+  
+  if (!contactForm) return;
+  
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(contactForm);
+    
+    // Update status
+    status.textContent = 'Gönderiliyor...';
+    status.style.color = 'var(--warning)';
+    
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      if (response.ok) {
+        status.textContent = 'Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağım.';
+        status.style.color = 'var(--success)';
+        contactForm.reset();
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Contact form error:', error);
+      status.textContent = 'Mesaj gönderilemedi. Lütfen xeyalcemilli9032@gmail.com adresine doğrudan e-posta gönderin.';
+      status.style.color = 'var(--error)';
+    }
+  });
+}

@@ -1,32 +1,50 @@
-window.CASES = [
+/**
+ * Khayal Jamilli Portfolio - Case Studies Data
+ * Modern AI & Full-Stack Developer Projects
+ * GitHub Optimized
+ */
+
+window.caseStudies = [
   {
-    "title": "E-Ticaret Platformu — Modern Alışveriş Deneyimi",
-    "summary": "React ve Node.js ile geliştirilmiş tam özellikli e-ticaret platformu. Kullanıcı yönetimi, ürün kataloğu, sepet sistemi ve güvenli ödeme entegrasyonu.",
-    "metrics": ["+45% Satış dönüşümü", "LCP < 2.1s", "SEO 95/100"],
-    "tags": ["React", "Node.js", "MongoDB", "Stripe", "Redux"],
-    "demo": "https://ecommerce-demo.khayal.dev",
-    "code": "https://github.com/xeyal9032/ecommerce-platform",
-    "brief": "assets/case-ecommerce.pdf",
-    "image": "assets/project-1.webp"
+    title: "AI-Powered E-Commerce Platform",
+    summary: "Modern React ve Node.js ile geliştirilmiş yapay zeka destekli e-ticaret platformu. AI tabanlı ürün önerileri, chatbot müşteri desteği ve gelişmiş analitik.",
+    metrics: {
+      performance: "+45% Satış dönüşümü",
+      users: "AI Öneriler %78",
+      revenue: "LCP < 2.1s"
+    },
+    tags: ["React", "Node.js", "TensorFlow", "MongoDB", "AI/ML"],
+    demo: "https://ai-ecommerce.khayal.dev",
+    code: "https://github.com/xeyal9032/ai-ecommerce-platform",
+    brief: "assets/case-ai-ecommerce.pdf",
+    image: "assets/project-1.webp"
   },
   {
-    "title": "Task Manager — Proje Yönetim Uygulaması",
-    "summary": "TypeScript ve Next.js ile geliştirilmiş gelişmiş görev yönetimi uygulaması. Takım işbirliği, zaman takibi ve raporlama özellikleri.",
-    "metrics": ["-35% proje tamamlanma süresi", "A11y AA", "Bundle -25%"],
-    "tags": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Tailwind"],
-    "demo": "https://taskmanager.khayal.dev",
-    "code": "https://github.com/xeyal9032/task-manager",
-    "brief": "assets/case-taskmanager.pdf",
-    "image": "assets/project-2.webp"
+    title: "Smart Task Manager with AI",
+    summary: "TypeScript ve Next.js ile geliştirilmiş yapay zeka destekli proje yönetimi uygulaması. AI tabanlı görev önceliklendirme, zaman tahminleme ve otomatik raporlama.",
+    metrics: {
+      performance: "-35% Proje süresi",
+      users: "AI Tahmin %92",
+      revenue: "Bundle -25%"
+    },
+    tags: ["Next.js", "TypeScript", "PyTorch", "PostgreSQL", "AI/ML"],
+    demo: "https://ai-taskmanager.khayal.dev",
+    code: "https://github.com/xeyal9032/ai-task-manager",
+    brief: "assets/case-ai-taskmanager.pdf",
+    image: "assets/project-2.webp"
   },
   {
-    "title": "Blog CMS — İçerik Yönetim Sistemi",
-    "summary": "Python Django ile geliştirilmiş güçlü blog ve içerik yönetim sistemi. Çok dilli destek, SEO optimizasyonu ve admin panel.",
-    "metrics": ["%99.8 Uptime", "+28% sayfa görüntüleme", "Core Web Vitals 90+"],
-    "tags": ["Python", "Django", "PostgreSQL", "Redis", "Docker"],
-    "demo": "https://blog-cms.khayal.dev",
-    "code": "https://github.com/xeyal9032/blog-cms",
-    "brief": "assets/case-blogcms.pdf",
-    "image": "assets/project-3.webp"
+    title: "AI Content Management System",
+    summary: "Python Django ile geliştirilmiş yapay zeka destekli içerik yönetim sistemi. NLP tabanlı içerik analizi, otomatik SEO optimizasyonu ve AI destekli yazım asistanı.",
+    metrics: {
+      performance: "99.8% Uptime",
+      users: "AI Analiz %85",
+      revenue: "SEO 95/100"
+    },
+    tags: ["Python", "Django", "NLP", "PostgreSQL", "AI/ML"],
+    demo: "https://ai-cms.khayal.dev",
+    code: "https://github.com/xeyal9032/ai-cms",
+    brief: "assets/case-ai-cms.pdf",
+    image: "assets/project-3.webp"
   }
 ];

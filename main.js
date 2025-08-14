@@ -7,7 +7,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Initialize all functionality
   initThemeSwitcher();
-  loadCaseStudies();
   initCounters();
   initContactForm();
 });
@@ -35,37 +34,7 @@ function initThemeSwitcher() {
   });
 }
 
-/**
- * Load Case Studies from Data File
- */
-function loadCaseStudies() {
-  const casesContainer = document.getElementById('cases');
-  
-  if (!casesContainer || !window.caseStudies) return;
-  
-  const casesHTML = window.caseStudies.map(study => `
-    <article class="card">
-      <img src="${study.image}" alt="${study.title}" loading="lazy">
-      <div class="tags">
-        ${study.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-      </div>
-      <h3>${study.title}</h3>
-      <p>${study.summary}</p>
-      <div class="metrics">
-        <span>${study.metrics.performance}</span>
-        <span>${study.metrics.users}</span>
-        <span>${study.metrics.revenue}</span>
-      </div>
-      <div class="actions">
-        <a href="${study.demo}" target="_blank" rel="noopener" class="cta small">Demo</a>
-        <a href="${study.code}" target="_blank" rel="noopener" class="ghost small">Kod</a>
-        <a href="${study.brief}" download class="ghost small">Brief</a>
-      </div>
-    </article>
-  `).join('');
-  
-  casesContainer.innerHTML = casesHTML;
-}
+
 
 /**
  * Counter Animation for Hero Stats

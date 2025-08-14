@@ -17,7 +17,7 @@ window.caseStudies = [
     demo: "https://ai-ecommerce.khayal.dev",
     code: "https://github.com/xeyal9032/ai-ecommerce-platform",
     brief: "assets/case-ai-ecommerce.pdf",
-    image: "assets/project-1.webp"
+    image: "assets/project-1.svg"
   },
   {
     title: "Smart Task Manager with AI",
@@ -31,7 +31,7 @@ window.caseStudies = [
     demo: "https://ai-taskmanager.khayal.dev",
     code: "https://github.com/xeyal9032/ai-task-manager",
     brief: "assets/case-ai-taskmanager.pdf",
-    image: "assets/project-2.webp"
+    image: "assets/project-2.svg"
   },
   {
     title: "AI Content Management System",
@@ -45,6 +45,6 @@ window.caseStudies = [
     demo: "https://ai-cms.khayal.dev",
     code: "https://github.com/xeyal9032/ai-cms",
     brief: "assets/case-ai-cms.pdf",
-    image: "assets/project-3.webp"
+    image: "assets/project-3.svg"
   }
 ];
